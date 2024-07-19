@@ -1,23 +1,31 @@
-name: CI/CD
+name: Deploy
+
 on:
   push:
     branches:
-    - master
-    paths:
-    - "src/**"
-    - "book.toml"
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      uses: ./.github/actions/build
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        external_repository: [自分のユーザー名]/[GitHubPagesのリポジトリ名]
-        PUBLISH_BRANCH: master
-        PUBLISH_DIR: ./book
+      - name: Checkout sources
+        uses: actions/checkout@v2 
+
+      - name: Setup mdBook 
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: 'latest'
+
+      - name: Build docs
+        run: |
+          mdbook build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book
