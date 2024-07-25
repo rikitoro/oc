@@ -4,3 +4,5 @@
 
  
  - [オープンキャンパスアンケート](https://forms.office.com/Pages/ResponsePage.aspx?id=XYP-cpVeEkWK4KezivJfyP4eUmKD2ilIlw9dKjCKMv5UMUxNSlhPUE1MVTlKRkxJMVJaUVgxOTYyRCQlQCN0PWcu)
+
+ ![QR](./assets/qr.png)
