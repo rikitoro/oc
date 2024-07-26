@@ -9,4 +9,5 @@
 - [食堂・購買](./shop.md)
 - [シャトルバス](./bus.md)
 - [会場マップ](./map.md)
+- [スタンプラリー](./stamp.md)
 - [アンケート](./questionnaire.md)
